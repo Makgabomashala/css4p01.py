@@ -55,8 +55,9 @@ movies_rating = len(df[df['Rating']>= 8])
 print(movies_rating)
 
 #Q7 median of Chris Nolan movies
-median_Chris_Nolan = df[df['Director']=='Christopher Nolan']
-print(median_Chris_Nolan.median)
+movies_Chris_Nolan = df[df['Director']=='Christopher Nolan']
+median_Chris_Nolan = movies_Chris_Nolan['Rating'].median()
+print(median_Chris_Nolan)
 
 #Q8 average rating of the year
 Avg_rating_year = df.groupby('Year')['Rating'].mean()
@@ -83,7 +84,7 @@ Genre = df['Genre'].str.split(', ').explode()
 Genre_count =Genre.nunique()
 print(Genre_count)
 
-
+#Q12
 # Calculate the correlation matrix for the numerical values in the dataset
 correlation_matrix = df[['Year', 'Runtime (Minutes)', 'Rating', 'Votes', 'Revenue (Millions)', 'Metascore']].corr()
 
